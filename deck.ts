@@ -3,9 +3,11 @@ import Card, { Value, Suit } from './card';
 export default class Deck {
 
 	public cards: Card[];
+	private outOfDeckCards: Card[];
 
 	constructor() {
 		this.cards = this.setup();
+		this.outOfDeckCards = [];
 	}
 
 	private setup(): Card[] {
@@ -38,7 +40,21 @@ export default class Deck {
 	}
 
 	public dealOne(): Card | undefined {
-		return this.cards.shift();
+		let card = this.cards.shift();
+		if (card) {
+			this.outOfDeckCards.push(card);
+		}
+		return card;
+	}
+
+	public recallCards(): boolean {
+		let deck = this.cards.concat(this.outOfDeckCards);
+		if (deck.length === 52) {
+			this.cards = deck;
+			this.outOfDeckCards = [];
+			return true;
+		}
+		return false;
 	}
 
 	public addCard(card: Card): number {

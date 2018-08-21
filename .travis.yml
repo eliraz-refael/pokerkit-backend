@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+ - "node"
+env:
+- NODE_ENV=TEST
+install:
+  - npm install
+script:
+  - npm test
+  - npm build
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API_KEY
+  app: pokerkit-backend

@@ -30,6 +30,10 @@ export default class Dealer {
 		}
 	}
 
+	public dealOneCard(): Card {
+		return this.deck.dealOne()!;
+	}
+
 	public dealFlop(): void {
 		this.burnCard();
 		for (let i = 0; i < 3; i++) {
@@ -48,14 +52,9 @@ export default class Dealer {
 	}
 
 	public gatherCards(): void {
-		for (let i = 0; i < this.communityCards.length; i++) {
-			this.deck.addCard(this.communityCards[i]);
-		}
+		this.deck.recallCards();
+		this.burnedCards = [];
 		this.communityCards = [];
-		for (let i = 0; i < this.burnedCards.length; i++) {
-			this.deck.addCard(this.burnedCards[i]);
-		}
-		this.burnedCards = []
 	}
 
 	public printCommunity(): void {
