@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --require ts-node/register --reporter spec 'test/**/*.test.ts'",
     "test:watch": "mocha --require ts-node/register --reporter spec 'test/**/*.test.ts' --watch-extensions ts --watch",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "npx ts-node ./index.ts"
   },
   "author": "",
   "license": "ISC",
