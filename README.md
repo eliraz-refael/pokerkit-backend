@@ -1,4 +1,4 @@
-# This is the backend part of the Pokerkit application
+# This is the backend part of the Pokerkit application [![Build Status](https://travis-ci.org/eliraz-refael/pokerkit-backend.svg?branch=master)](https://travis-ci.org/eliraz-refael/pokerkit-backend)
 There's a road map I'll upload soon to the app.
 
 ## Where's the frontend part of Pokerkit?
