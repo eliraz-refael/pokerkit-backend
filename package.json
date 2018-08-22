@@ -1,7 +1,7 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "",
+  "name": "Pokerkit backend poject",
+  "version": "0.0.1",
+  "description": "see README",
   "main": "index.js",
   "scripts": {
     "test": "mocha --require ts-node/register --reporter spec 'test/**/*.test.ts'",
