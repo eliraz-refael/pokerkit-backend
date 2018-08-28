@@ -1,14 +1,19 @@
 import { Socket } from 'socket.io';
-const app = require('express');
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
 import Dealer from './dealer';
+import express from 'express';
+import SocketIO from 'socket.io';
+import { Server } from 'http';
+import Table from './table';
 
-let dealer = new Dealer();
+const http = new Server(express);
+const io = SocketIO(http);
+
+
 
 io.on('connection', (socket: Socket) => {
-	socket.emit('deal', dealer.dealOneCard());
-	
+	let table = new Table();
+	socket.emit('newTable', table.id);
+	// socket.emit('deal', dealer.dealOneCard());
 });
 
 let port = process.env.PORT || 3000;

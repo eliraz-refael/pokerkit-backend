@@ -6,15 +6,22 @@ export default class Dealer {
 	public deck: Deck;
 	public burnedCards: Card[];
 	public communityCards: Card[];
-	public players: any[];
+	private static instance: Dealer;
 
-	public constructor() {
+	private constructor() {
 		this.deck = new Deck();
 		this.deck.shuffle();
 		this.burnedCards = [];
 		this.communityCards = [];
-		this.players = [];
 	}
+
+	public static getInstance() {
+		if (!(Dealer.instance instanceof Dealer)) {
+			Dealer.instance = new Dealer;
+		}
+		return Dealer.instance;
+	}
+
 
 	private dealCard(): void {
 		let card = this.deck.dealOne();

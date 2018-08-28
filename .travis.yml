@@ -7,8 +7,6 @@ install:
   - npm install
 script:
   - npm test
-  - npm version patch
-  - git push origin master
 deploy:
   provider: heroku
   api_key: $HEROKU_API_KEY

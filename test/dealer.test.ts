@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import Dealer from '../dealer';
 
 describe('Dealer tests', () => {
-	let dealer = new Dealer();
+	let dealer = Dealer.getInstance();
 	it('should deal 3 cards as the flop and have left with 48 (one card got burned)', () => {
 		dealer.dealFlop();
 		expect(dealer.communityCards.length).to.equal(3);
