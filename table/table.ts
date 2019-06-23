@@ -1,4 +1,4 @@
-import Player from './player';
+import Player from '../player/player';
 import shortid from 'shortid';
 
 export default class Table {
@@ -9,7 +9,7 @@ export default class Table {
 	public bigBlind: Player | undefined;
 	public smallBlind: Player | undefined;
 
-	public newPlayer(player: Player) {
+	public assignPlayer(player: Player) {
 		this.players.push(player);
 	}
 
@@ -49,6 +49,4 @@ export default class Table {
 		}
 	}
 
-	
-	
 }

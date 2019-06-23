@@ -1,4 +1,4 @@
-import Card, { Suit, Value } from '../card';
+import Card, { Suit, Value } from '../card/card';
 import { expect } from 'chai';
 
 describe('test card identity', () => {

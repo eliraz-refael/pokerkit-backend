@@ -1,5 +1,5 @@
-import Deck from './deck';
-import Card from './card';
+import Deck from '../card/deck';
+import Card from '../card/card';
 
 export default class Dealer {
 	

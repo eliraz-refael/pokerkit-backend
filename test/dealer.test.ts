@@ -1,6 +1,6 @@
-import Card, { Suit, Value } from '../card';
+import Card, { Suit, Value } from '../card/card';
 import { expect } from 'chai';
-import Dealer from '../dealer';
+import Dealer from '../dealer/dealer';
 
 describe('Dealer tests', () => {
 	let dealer = Dealer.getInstance();
