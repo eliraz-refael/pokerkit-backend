@@ -1,5 +1,5 @@
 import Player from './player';
-import { io } from '..';
+import { io } from '../setup.server';
 
 class PlayerManager {
 

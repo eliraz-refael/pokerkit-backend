@@ -1,7 +1,7 @@
 import Player from '../player/player';
 import { Socket } from 'socket.io';
 import playerManager from '../player/player.manager';
-import { io } from '..';
+import { io } from '../setup.server';
 
 export const newPlayerHandler = (socket: Socket) => (name: string) => {
 	const playerId = playerManager.assignNewPlayer(name, socket.id);
