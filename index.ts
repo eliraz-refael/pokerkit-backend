@@ -11,6 +11,8 @@ import playerManager from './player/player.manager';
 const http = new Server(express);
 export const io = SocketIO(http);
 
+playerManager.cleanOfflinePlayersByTime(30);
+
 io.on('connection', (socket: Socket) => {
 	socket.on('newPlayer', newPlayerHandler(socket));
 	socket.on('checkPlayerId', checkPlayerExists(socket));

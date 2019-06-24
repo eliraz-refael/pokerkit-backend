@@ -5,8 +5,8 @@ class PlayerManager {
 
 	public players: Player[] = [];
 
-	public constructor() {
-		setInterval(this.cleanOfflinePlayers.bind(this), 30000);
+	public cleanOfflinePlayersByTime(seconds: number = 30) {
+		setInterval(this.cleanOfflinePlayers.bind(this), seconds * 1000);
 	}
 
 	public assignNewPlayer(name: string, socketId: string): string {
@@ -25,15 +25,17 @@ class PlayerManager {
 	}
 
 	private cleanOfflinePlayers() {
-		console.log('cleanning offline players');
 		let playersIndexToRemove = [];
 		for (let i = 0; i < this.players.length; i++) {
 			if (!io.sockets.sockets[this.players[i].socketId]) {
 				playersIndexToRemove.push(i);
 			}
 		}
-		playersIndexToRemove.forEach(i => this.players.splice(i, 1));
-		io.emit('onlineCount', this.getPlayersCount());
+		if (playersIndexToRemove.length > 0) {
+			console.log('cleanning offline players');
+			playersIndexToRemove.forEach(i => this.players.splice(i, 1));
+			io.emit('onlineCount', this.getPlayersCount());
+		}
 	}
 
 	private findPlayerById(playerId: string): Player | null {
