@@ -30,6 +30,6 @@
     "@types/socket.io": "^2.1.2",
     "@types/uuid": "^3.4.4",
     "chai": "^4.2.0",
-    "mocha": "^6.1.4"
+    "mocha": "^10.2.0"
   }
 }
